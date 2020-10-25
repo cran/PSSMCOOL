@@ -7,7 +7,7 @@
 \docType{package}
 
 \description{
-  This package is a Comprehensive toolkit for generating various numerical features from PSSM Matrix correspond to each protein sequence and covers all features introduced in \href{http://possum.erc.monash.edu/}{POSSUM} and some other new features. see \href{https://rpubs.com/alireza_69/640294}{PSSMCOOL_Rpubs} for more information.
+  This package is a Comprehensive toolkit for generating various numerical features from PSSM Matrix correspond to each protein sequence and covers all features introduced in POSSUM Package and some other new features. see \href{https://rpubs.com/alireza_69/640294}{PSSMCOOL_Rpubs} for more information.
   }
 
 \seealso{
