@@ -53,9 +53,8 @@
 \strong{Useful links:}
 \itemize{
   \item \url{https://rpubs.com/alireza_69/640294}
-  \item \url{https://github.com/Alireza9651501005/PSSMCOOL/}
-  \item \url{http://bioinf.modares.ac.ir/software/pssm/DownloadALL.html}
-  \item Report bugs at \url{https://github.com/Alireza9651501005/PSSMCOOL/issues}
+  \item \url{https://github.com/BioCool-Lab/PSSMCOOL/}
+  \item Report bugs at \url{https://github.com/BioCool-Lab/PSSMCOOL/issues}
   }
 }
 \author{

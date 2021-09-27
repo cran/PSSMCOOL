@@ -1,11 +1,12 @@
 Package: PSSMCOOL
 Type: Package
 Title: Features Extracted from Position Specific Scoring Matrix (PSSM)
-Version: 0.2.1
+Version: 0.2.2
 Imports: utils, gtools, infotheo, phonTools, dtt
 Authors@R: c(
     person("Javad", "zahiri", email = "zahiri@modares.ac.ir", role = "aut"),
-    person("Alireza", "mohammadi", email = "alireza691111@gmail.com", role = c("aut","cre")))
+    person("Alireza", "mohammadi", email = "alireza691111@gmail.com", role = c("aut","cre")),
+    person("Saber", "mohammadi", email = "sabermohammdi.1994@gmail.com", role = "aut"))
 Maintainer: Alireza mohammadi <alireza691111@gmail.com>
 Depends: R (>= 3.1.0)
 Description: Returns almost all features that has been extracted from Position Specific 
@@ -24,16 +25,17 @@ Description: Returns almost all features that has been extracted from Position S
              Juan, E.Y., et al.(2009)
              <DOI:10.1109/CISIS.2009.194>. 
 License: GPL-3
-URL: https://github.com/Alireza9651501005/PSSMCOOL
-BugReports: https://github.com/Alireza9651501005/PSSMCOOL/issues
+URL: https://github.com/BioCool-Lab/PSSMCOOL
+BugReports: https://github.com/BioCool-Lab/PSSMCOOL/issues
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.1
-Suggests: testthat, spelling, waveslim,
+Suggests: testthat, spelling, waveslim, knitr, rmarkdown
 Language: en-US
+VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-10-25 16:30:38 UTC; Alireza
+Packaged: 2021-09-26 18:12:13 UTC; Alireza
 Author: Javad zahiri [aut],
-  Alireza mohammadi [aut, cre]
+  Alireza mohammadi [aut, cre],
+  Saber mohammadi [aut]
 Repository: CRAN
-Date/Publication: 2020-10-25 17:00:08 UTC
+Date/Publication: 2021-09-27 10:00:27 UTC
