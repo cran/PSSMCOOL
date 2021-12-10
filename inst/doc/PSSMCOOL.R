@@ -168,3 +168,126 @@ head(w, n = 50)
  w<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 head(w, n = 20)
 
+## ----eval=FALSE---------------------------------------------------------------
+#  # install.packages("PSSMCOOL")
+#  # library(PSSMCOOL)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  current_directory <- "/home/PSSMCOOL/" # Please provide your desired directory.
+#  setwd(current_directory)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  pssm_url <- 'https://github.com/BioCool-Lab/PSSMCOOL/raw/main/classification-code-data/all_needed_pssms90.zip'
+#  download.file(pssm_url, './all_needed_pssm90.zip', method = 'auto', quiet = FALSE)
+#  unzip('all_needed_pssm90.zip', exdir = 'all_needed_pssm90')
+#  PSSM_directory <- 'all_needed_pssm90/all_needed_pssms90/'
+
+## ----eval=FALSE---------------------------------------------------------------
+#  url <- "https://raw.githubusercontent.com/BioCool-Lab/PSSMCOOL/main/classification-code-data/positive.csv"
+#  download.file(url, './PositiveData.csv')
+#  positive_data <- read.csv("./PositiveData.csv", header = TRUE)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  url <- "https://raw.githubusercontent.com/BioCool-Lab/PSSMCOOL/main/classification-code-data/negative.csv"
+#  download.file(url, './NegativeData.csv')
+#  negative_data <- read.csv("./NegativeData.csv", header = TRUE)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  positiveFeatures<- c()
+#  for(i in 1:dim(positive_data)[1]) {
+#    ff<-FPSSM2(paste0(PSSM_directory, positive_data[i,1],'.fasta.pssm'),
+#               paste0(PSSM_directory, positive_data[i,2],'.fasta.pssm'), 20)
+#    positiveFeatures<-rbind(positiveFeatures, ff)
+#  }
+
+## ----eval=FALSE---------------------------------------------------------------
+#  positiveFirstColumn <- c()
+#  for(i in 1:dim(positive_data)[1]) {
+#    dd <- paste(positive_data[i,1], '-' ,positive_data[i,2])
+#    positiveFirstColumn <- rbind(positiveFirstColumn, dd)
+#  }
+
+## ----eval=FALSE---------------------------------------------------------------
+#  pos_class <- rep("Interaction", dim(positiveFeatures)[1])
+#  positiveFeatures2 <- cbind(positiveFirstColumn, positiveFeatures, pos_class)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  negativeFeatures <- c()
+#  for(i in 1:dim(negative_data)[1]) {
+#    ff2<-FPSSM2(paste0(PSSM_directory, negative_data[i,1],'.fasta.pssm'),
+#                paste0(PSSM_directory, negative_data[i,2],'.fasta.pssm'), 20)
+#    negativeFeatures<-rbind(negativeFeatures, ff2)
+#  }
+
+## ----eval=FALSE---------------------------------------------------------------
+#  negativeFirstColumn <- c()
+#  for(i in 1:dim(negative_data)[1]) {
+#    dd2 <- paste(negative_data[i,1], '-' ,negative_data[i,2])
+#    negativeFirstColumn <- rbind(negativeFirstColumn, dd2)
+#  }
+
+## ----eval=FALSE---------------------------------------------------------------
+#  neg_class <- rep("Non.Interaction", dim(negativeFeatures)[1])
+#  negativeFeatures2 <- cbind(negativeFirstColumn, negativeFeatures, neg_class)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  mainDataSet <- rbind(positiveFeatures2, negativeFeatures2)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  install.packages('caret', dependencies = TRUE)
+#  library(caret)
+#  bmp.R2.submission.data.df <- as.data.frame(mainDataSet)
+#  colnames(bmp.R2.submission.data.df)[1] <- "interactions"
+#  dim(bmp.R2.submission.data.df)#1730  102
+
+## ----eval=FALSE---------------------------------------------------------------
+#  rownames(bmp.R2.submission.data.df) <- bmp.R2.submission.data.df$interactions
+
+## ----eval=FALSE---------------------------------------------------------------
+#  bmp.R2.submission.data.df <-bmp.R2.submission.data.df[,-1]
+#  View(bmp.R2.submission.data.df)
+#  colnames(bmp.R2.submission.data.df) <- c(paste0('Frt', 1: dim(positiveFeatures)[2]), 'Class')
+#  dim(bmp.R2.submission.data.df)#1730  101
+#  table(bmp.R2.submission.data.df$Class)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  bmp.R2.submission.data.df$Class <-
+#    as.factor(bmp.R2.submission.data.df$Class)
+#  write.csv(bmp.R2.submission.data.df, 'DataSet.csv')
+
+## ----eval=FALSE---------------------------------------------------------------
+#  bmp.R2.submission.data.df <- read.csv("DataSet.csv")
+#  setting.the.trainControl.3 <- function()
+#  {
+#    #setting the trainControl function parameter: repeated CV; downsampling;
+#    set.seed(100)
+#    fitControl <- trainControl(## 10-fold CV
+#      method = "cv",
+#      returnData = TRUE,
+#      classProbs = TRUE,
+#    )
+#    return(fitControl)
+#  }
+
+## ----eval=FALSE---------------------------------------------------------------
+#  trainControl.for.PSSM <- setting.the.trainControl.3()
+
+## ----eval=FALSE---------------------------------------------------------------
+#  cross.validation.bulit.model.treebag <-
+#    train(Class ~ ., data = bmp.R2.submission.data.df,
+#          method = "treebag",
+#          trControl = trainControl.for.PSSM,
+#          verbose = FALSE)
+#  print(cross.validation.bulit.model.treebag$results)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  cross.validation.bulit.model.C5.0Tree <-
+#    train(Class ~ ., data = bmp.R2.submission.data.df,
+#          method = "C5.0Tree",
+#          trControl = trainControl.for.PSSM,
+#          verbose = FALSE)
+#  print(cross.validation.bulit.model.C5.0Tree$results)
+
+## ----sessionInfo,echo=FALSE,out.width = '70%'---------------------------------
+knitr::include_graphics("figures/sessionInfo.PNG")
+

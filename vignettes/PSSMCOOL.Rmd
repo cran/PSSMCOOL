@@ -68,7 +68,7 @@ knitr::include_graphics("figures/pssm_ac.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-PSSMAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -93,7 +93,7 @@ y_{i,j}=\frac{1}{(L-1)}\sum_{k=1}^{L-1}S_{k,i}S_{k+1,j}, \\(1\leq{i,j}\leq{20})
 <font size="4">In the above equation,$S_{i,j}$'s,are the PSSM elements and $y_{i,j}$'s are the 20x20 matrix elements, which by placing the rows of this matrix next to each other,DPC-PSSM feature vector of length 400 is obtained.</font>
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  ss<-DPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -115,7 +115,7 @@ T_{m,n,r}=\sum_{i=1}^{L-2}P_{i,m}P_{i+1,n}P_{i+2,r}
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
 as<-trigrame_pssm(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GSI6.txt.pssm"))
@@ -137,7 +137,7 @@ p(k)=\frac{1}{L-lag}\sum_{i=1}^{L-lag}(p_{i,j}-p_{i+lag,j})^2 \\j=1,2,...,20,lag
 
 <br></br>
 
-<font size="4"> usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  v<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -158,7 +158,7 @@ T_{m,n}(k)=\sum_{i=1}^{L-k}p_{i,m}p_{i+k,n}\quad ,(1\leq{m,n}\leq{20})
 \end{equation}
 
 <br></br>
-<font size="4"> usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-k_seperated_bigrame(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
@@ -205,7 +205,7 @@ Aver_2=(p_{i,s}+p_{i+1,t})/2
 knitr::include_graphics("figures/EEDP.jpg")
 ```
 <br></br>
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-EDP_MEDP(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GS61.txt.pssm"))
@@ -220,7 +220,7 @@ head(as, n = 50)
 knitr::include_graphics("figures/AB-PSSM.jpg")
 ```
 <br></br>
-<font size="4"> usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
   zz<- AB_PSSM(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"))
@@ -245,7 +245,7 @@ y_{i,j}=(\sum_{k=1}^{L-1}P_{k,i}\times P_{k+1,j})/(\sum_{j=1}^{20}\sum_{k=1}^{L-
 <br></br>
 <font size="4"> In the above equation, the numerator is the same as the equation related to DPC-PSSM feature without considering its coefficient. By placing these components together, a TPC feature vector of length 400 is obtained, and if we add the AAC feature vector of length 20 which is the average of columns of the PSSM to the beginning of this vector, AATP feature vector of length 420 is obtained [@zhang2012using].</font>
 <br></br>
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-AATP_TPCC(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GQS7.txt.pssm"))
@@ -352,7 +352,7 @@ j=1,2,...,20,lg=1,2
 <font size="4">If we stick all these feature vectors to each other, we will get a feature vector with a length of 700, which is reduced by PCA method and is used as input for the support vector machine classifier [@liang2015prediction].</font>
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  A<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
@@ -390,7 +390,7 @@ knitr::include_graphics("figures/s-fpssm.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  q<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),20)
@@ -420,7 +420,7 @@ knitr::include_graphics("figures/scshtable.jpg")
 <br></br>
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  zz<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
@@ -499,7 +499,7 @@ D_{s,t}&=\frac{1}{L-1}\sum_{i=1}^{L-1}x_{i,i+1} \\
 \end{aligned}
 \end{equation}
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -526,7 +526,7 @@ CC-PSSM_{j1,j2}=\sum_{i=1}^{L-g}(P_{i,j1}-\overline {P_{j1}})(P_{i+g,j2}-\overli
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  aa<-pssm_cc(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),18)
@@ -555,7 +555,7 @@ DCT(u,v)=\rho(u)\rho(v)\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\cos\frac{(2x+1)u\p
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-Discrete_Cosine_Transform(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -590,7 +590,7 @@ knitr::include_graphics("figures/dwt.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-dwt_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -611,7 +611,7 @@ knitr::include_graphics("figures/disulfid.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
   aq<-disulfid(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -672,7 +672,7 @@ T_{i,j}=\frac{E_{i,j}-mean_i}{STD_i}
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  ss<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -712,7 +712,7 @@ f_{DFMCA}^2(s)=\frac{1}{L-s+1}\sum_{k=1}^{L-s+1}(X_k-\tilde{X}_{k,s})(Y_k-\tilde
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
   as<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
@@ -786,7 +786,7 @@ p_{L,j}-p_{L-1,j}
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -822,7 +822,7 @@ knitr::include_graphics("figures/smoothed.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
@@ -835,7 +835,7 @@ head(w[,1:50], n = 50)
 
 <br></br>
 
-<font size="4"> usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
   w<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
@@ -849,7 +849,7 @@ residues separated by a distance of d in terms of their evolution scores [@liang
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -862,7 +862,7 @@ head(w, n = 50)
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -880,7 +880,7 @@ knitr::include_graphics("figures/pssm400.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  q<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
@@ -895,7 +895,7 @@ appending these vectors to each other final feature vector is obtained [@an2017c
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  as<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
@@ -914,7 +914,7 @@ knitr::include_graphics("figures/pssmsd.jpg")
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  ww<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -940,7 +940,7 @@ PSSM-AC_{m,j}=\frac{1}{(L-m)}\sum_{i=1}^{L-m}(P_{i,j}-P_{ave,j})(P_{(i+m),j}-P_{
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  q<-pssm_seg(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),3)
@@ -966,7 +966,7 @@ head(q, n = 50)
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -984,7 +984,7 @@ entries are known as the singular values of Mat. The resulting descriptor is the
 
 <br></br>
 
-<font size="4"> Usage of this feature in PSSMCOOL package:</font>
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
  w<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
@@ -993,6 +993,172 @@ head(w, n = 20)
 
 <br></br>
 
+# useCase implementation in R
+
+<font size="4">__*# Installing PSSMCOOL and loading it*__ </font>
+```{r eval=FALSE}
+# install.packages("PSSMCOOL")
+# library(PSSMCOOL)
+```
+<font size="4">__*# setting up working environment and downloading necessary files from GitHub*__</font>
+```{r eval=FALSE}
+current_directory <- "/home/PSSMCOOL/" # Please provide your desired directory. 
+setwd(current_directory)
+```
+<font size="4">__*# Downloading the required PSSM files*__ </font>
+```{r eval=FALSE}
+pssm_url <- 'https://github.com/BioCool-Lab/PSSMCOOL/raw/main/classification-code-data/all_needed_pssms90.zip' 
+download.file(pssm_url, './all_needed_pssm90.zip', method = 'auto', quiet = FALSE) 
+unzip('all_needed_pssm90.zip', exdir = 'all_needed_pssm90') 
+PSSM_directory <- 'all_needed_pssm90/all_needed_pssms90/'
+```
+<font size="4">__*# Downloading positive data and loading it to R*__ </font>
+```{r eval=FALSE}
+url <- "https://raw.githubusercontent.com/BioCool-Lab/PSSMCOOL/main/classification-code-data/positive.csv"
+download.file(url, './PositiveData.csv')
+positive_data <- read.csv("./PositiveData.csv", header = TRUE)
+```
+<font size="4">__*# Downloading negative data and loading it to R*__ </font>
+```{r eval=FALSE}
+url <- "https://raw.githubusercontent.com/BioCool-Lab/PSSMCOOL/main/classification-code-data/negative.csv" 
+download.file(url, './NegativeData.csv')
+negative_data <- read.csv("./NegativeData.csv", header = TRUE)
+```
+<font size="4">__*# ##################---*Positive feature extraction*---#######################*__ </font>
+
+<font size="4">__*# Feature extraction*__ </font>
+```{r eval=FALSE}
+positiveFeatures<- c() 
+for(i in 1:dim(positive_data)[1]) { 
+  ff<-FPSSM2(paste0(PSSM_directory, positive_data[i,1],'.fasta.pssm'), 
+             paste0(PSSM_directory, positive_data[i,2],'.fasta.pssm'), 20) 
+  positiveFeatures<-rbind(positiveFeatures, ff) 
+}
+```
+<font size="4">__*# Adding row names and class*__ </font>
+```{r eval=FALSE}
+positiveFirstColumn <- c()
+for(i in 1:dim(positive_data)[1]) { 
+  dd <- paste(positive_data[i,1], '-' ,positive_data[i,2]) 
+  positiveFirstColumn <- rbind(positiveFirstColumn, dd) 
+}
+```
+```{r eval=FALSE}
+pos_class <- rep("Interaction", dim(positiveFeatures)[1]) 
+positiveFeatures2 <- cbind(positiveFirstColumn, positiveFeatures, pos_class) 
+```
+<font size="4">__*#################---*Negative feature extraction*---#####################*__ </font>
+
+<font size="4">__*# Feature extraction*__ </font>
+```{r eval=FALSE}
+negativeFeatures <- c() 
+for(i in 1:dim(negative_data)[1]) { 
+  ff2<-FPSSM2(paste0(PSSM_directory, negative_data[i,1],'.fasta.pssm'), 
+              paste0(PSSM_directory, negative_data[i,2],'.fasta.pssm'), 20) 
+  negativeFeatures<-rbind(negativeFeatures, ff2) 
+}
+```
+<font size="4">__*# Adding row names and class*__ </font>
+```{r eval=FALSE}
+negativeFirstColumn <- c() 
+for(i in 1:dim(negative_data)[1]) { 
+  dd2 <- paste(negative_data[i,1], '-' ,negative_data[i,2]) 
+  negativeFirstColumn <- rbind(negativeFirstColumn, dd2) 
+} 
+```
+```{r eval=FALSE}
+neg_class <- rep("Non.Interaction", dim(negativeFeatures)[1]) 
+negativeFeatures2 <- cbind(negativeFirstColumn, negativeFeatures, neg_class) 
+```
+<font size="4">__*# Merging two feature vectors*__ </font>
+```{r eval=FALSE}
+mainDataSet <- rbind(positiveFeatures2, negativeFeatures2) 
+```
+<font size="4">__*#################---*Preparing data set for model training*---##############*__ </font>
+
+<font size="3">__*# In the following we are going to carry out classification on the data we have prepared so far (mainDataSet)*__ </font>
+
+<font size="3">__*# First we need to install and load caret package and its dependencies*__ </font>
+```{r eval=FALSE}
+install.packages('caret', dependencies = TRUE) 
+library(caret) 
+bmp.R2.submission.data.df <- as.data.frame(mainDataSet) 
+colnames(bmp.R2.submission.data.df)[1] <- "interactions" 
+dim(bmp.R2.submission.data.df)#1730  102 
+```
+<font size="4">__*# Assigning the Uniprot IDs for each protein pairs to the row name*__ </font>
+```{r eval=FALSE}
+rownames(bmp.R2.submission.data.df) <- bmp.R2.submission.data.df$interactions
+```
+<font size="4">__*# Removing the Uniprot IDs*__ </font>
+```{r eval=FALSE}
+bmp.R2.submission.data.df <-bmp.R2.submission.data.df[,-1] 
+View(bmp.R2.submission.data.df)
+colnames(bmp.R2.submission.data.df) <- c(paste0('Frt', 1: dim(positiveFeatures)[2]), 'Class') 
+dim(bmp.R2.submission.data.df)#1730  101 
+table(bmp.R2.submission.data.df$Class)
+```
+<font size="2">*# Interaction--Non-Interaction*</font>
+
+<font size="2">*#   865------------------865*</font>
+```{r eval=FALSE}
+bmp.R2.submission.data.df$Class <- 
+  as.factor(bmp.R2.submission.data.df$Class) 
+write.csv(bmp.R2.submission.data.df, 'DataSet.csv') 
+```
+<font size="4">__*################---Training model with three classifier---##############*__</font>
+
+<font size="4">__*# setting.the.trainControl*__</font>
+```{r eval=FALSE}
+bmp.R2.submission.data.df <- read.csv("DataSet.csv") 
+setting.the.trainControl.3 <- function() 
+{ 
+  #setting the trainControl function parameter: repeated CV; downsampling; 
+  set.seed(100) 
+  fitControl <- trainControl(## 10-fold CV 
+    method = "cv", 
+    returnData = TRUE, 
+    classProbs = TRUE, 
+  ) 
+  return(fitControl) 
+} 
+```
+<font size="4">__*#########---setting cross validation parameters---#####################*__</font>
+```{r eval=FALSE}
+trainControl.for.PSSM <- setting.the.trainControl.3() 
+```
+
+<font size="4">__*# ######---10-fold cross-validation using "Bagged CART (treebag)" classifier---###*__</font>
+```{r eval=FALSE}
+cross.validation.bulit.model.treebag <- 
+  train(Class ~ ., data = bmp.R2.submission.data.df, 
+        method = "treebag", 
+        trControl = trainControl.for.PSSM, 
+        verbose = FALSE) 
+print(cross.validation.bulit.model.treebag$results) 
+```
+<font size="2">*# parameter---Accuracy-----Kappa-----AccuracySD----KappaSD*</font>
+
+<font size="2">*# 1-none---0.9965351---0.9930707---0.005582867---0.01116413*</font>
+
+<font size="4">__*# ####---10-fold cross-validation using "Single C5.0 Tree (C5.0Tree)" classifier---##*__</font>
+
+```{r eval=FALSE}
+cross.validation.bulit.model.C5.0Tree <- 
+  train(Class ~ ., data = bmp.R2.submission.data.df, 
+        method = "C5.0Tree", 
+        trControl = trainControl.for.PSSM, 
+        verbose = FALSE) 
+print(cross.validation.bulit.model.C5.0Tree$results) 
+```
+<font size="2">*# parameter---Accuracy----Kappa----AccuracySD----KappaSD*</font>
+
+<font size="2">*# 1--none---0.9976911---0.9953822---0.004028016---0.008056142*</font>
+
+<font size="4">__*# #############---SessionInFo in R---#####################*__</font>
+```{r sessionInfo,echo=FALSE,out.width = '70%'}
+knitr::include_graphics("figures/sessionInfo.PNG")
+```
 # References
 
 <br></br>
