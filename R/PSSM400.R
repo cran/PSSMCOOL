@@ -13,7 +13,7 @@
 #' @return feature vector of length 400
 #' @export
 #' @examples
-#' q<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
+#' X<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
 pssm400<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

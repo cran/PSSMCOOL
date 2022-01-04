@@ -20,7 +20,7 @@ smoothed by appending zero vectors to its head and tail and utilizing sliding wi
 smoothed PSSM Matrix is condensed by the Kidera factors to produce feature vector for each residue.
 }
 \examples{
-w<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
+X<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
 }
 \references{
 C. Fang, T. Noguchi, H. J. I. j. o. d. m. Yamana, and bioinformatics, "Condensing position-specific scoring

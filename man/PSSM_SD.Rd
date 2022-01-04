@@ -24,7 +24,7 @@ for all the columns and the obtained vectors are connected to each other, for ea
 of length 80 is obtained which its name is PSSM-SD.
 }
 \examples{
-ww<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 A. Dehzangi, K. Paliwal, J. Lyons, A. Sharma, A. J. I. A. T. o. C. B. Sattar, and Bioinformatics,

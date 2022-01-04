@@ -19,7 +19,7 @@ vector for each column, since PSSM has 20 column eventually it will be obtained 
 feature vector for each PSSM Matrix by this function.
 }
 \examples{
-w<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 L. Li et al., "PSSP-RFE: accurate prediction of protein structural class by recursive feature extraction

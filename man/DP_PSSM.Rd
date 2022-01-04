@@ -4,7 +4,7 @@
 \alias{DP_PSSM}
 \title{DP_PSSM feature vector}
 \usage{
-DP_PSSM(pssm_name, a = 2)
+DP_PSSM(pssm_name, a = 5)
 }
 \arguments{
 \item{pssm_name}{name of PSSM matrix file}
@@ -12,7 +12,7 @@ DP_PSSM(pssm_name, a = 2)
 \item{a}{fixed parameter that user chooses which usually equals to 2}
 }
 \value{
-feature vector of length 120
+feature vector of length 240
 }
 \description{
 This feature results from the connection of two vectors. The vector is the first feature of a
@@ -25,7 +25,7 @@ the length of the second feature vector will be 80, which by merging with the fi
 feature vector of length 120 will be obtained.
 }
 \examples{
-ss<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Juan, E.Y., et al. (2009) Predicting Protein Subcellular Localizations for Gram-Negative Bacteria using DP-PSSM

@@ -15,8 +15,8 @@
 #' Communications, 360, 339-345.
 #' @export
 #' @examples
-#' v<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-pse_pssm <- function(pssm_name,g=15){
+#' X<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+pse_pssm <- function(pssm_name,g=1){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -29,7 +29,7 @@ pse_pssm <- function(pssm_name,g=15){
   x<-as.matrix(x)
   mode(x)<-"integer"
   E<-x
-  E<-1/(1+exp(-E))
+  #E<-1/(1+exp(-E))
   L<-dim(E)[1]
   Ebar<-apply(E,2,mean)
   names(Ebar)<-NULL

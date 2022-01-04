@@ -1,7 +1,7 @@
 Package: PSSMCOOL
 Type: Package
 Title: Features Extracted from Position Specific Scoring Matrix (PSSM)
-Version: 0.2.3
+Version: 0.2.4
 Imports: utils, gtools, infotheo, phonTools, dtt
 Authors@R: c(
     person("Javad", "zahiri", email = "zahiri@modares.ac.ir", role = "aut"),
@@ -33,9 +33,9 @@ Suggests: testthat, spelling, waveslim, knitr, rmarkdown
 Language: en-US
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2021-12-10 22:05:20 UTC; LapTop
+Packaged: 2022-01-04 10:42:14 UTC; LapTop
 Author: Javad zahiri [aut],
   Alireza mohammadi [aut, cre],
   Saber mohammadi [aut]
 Repository: CRAN
-Date/Publication: 2021-12-10 23:40:11 UTC
+Date/Publication: 2022-01-04 13:20:05 UTC

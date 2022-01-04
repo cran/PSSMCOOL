@@ -19,7 +19,7 @@ components are mean of 20 PSSM columns and grey system model approach as elabora
 is used to define the next 60 components.
 }
 \examples{
-as<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 J.-L. Min, X. Xiao, and K.-C. J. B. r. i. Chou, "iEzy-Drug: A web server for identifying the interaction

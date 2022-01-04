@@ -4,7 +4,7 @@
 \alias{scsh2}
 \title{SCSH Feature vector}
 \usage{
-scsh2(pssm_name, k)
+scsh2(pssm_name, k = 2)
 }
 \arguments{
 \item{pssm_name}{is name of PSSM Matrix file}
@@ -21,7 +21,7 @@ In each row of this dataframe, each component is connected to the next row compo
 directed graph is produced. next by use of previous functions a feature vector of length 400 or 8000 is created.
 }
 \examples{
-zz<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
+X<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
 }
 \references{
 Zahiri, J., et al., LocFuse: human protein–protein interaction prediction via classifier fusion using protein

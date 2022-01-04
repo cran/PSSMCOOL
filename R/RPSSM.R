@@ -10,7 +10,7 @@
 #' PSI-BLAST profile, Biochimie, 97, 60-65.
 #' @export
 #' @examples
-#' w<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 rpssm<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
@@ -25,7 +25,7 @@ rpssm<-function(pssm_name){
   mode(x)<-"integer"
   m2<-x
   L<-dim(m2)[1]
-  m2<-1/(1+exp(-m2))
+  #m2<-1/(1+exp(-m2))
   p<-matrix(0,L,10)
   p[,1]<-(m2[,14]+m2[,19]+m2[,18])/3
   p[,2]<-(m2[,13]+m2[,11])/2

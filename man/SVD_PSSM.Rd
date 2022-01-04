@@ -23,7 +23,7 @@ set of singular values: \eqn{SVD\in\mathcal{R}^L,} where L=min(M,N).
 and here \code{\link[base]{svd}} function is used for this purpose.
 }
 \examples{
-w<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 L. Nanni, A. Lumini, and S. J. T. S. W. J. Brahnam, "An empirical study of different approaches for protein classification,"

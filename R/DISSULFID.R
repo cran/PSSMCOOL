@@ -10,14 +10,14 @@
 #'260 = 20 * 13 per cysteine, and if the position of the first and last cysteine in the protein sequence is such
 #'that the middle of sliding window is not on cysteine residue when moving on PSSM Matrix, then the required
 #'number of zero rows from top and bottom is added to the PSSM matrix to achieve this goal.Thus, for every
-#'cystine amino acid presented in protein sequence, a feature vector with a length of 260 is formed.Then all
+#'cysteine amino-acid presented in protein sequence, a feature vector with a length of 260 is formed.Then all
 #'the pairwise combinations of these cysteines is wrote in the first column of a table, and in front of each of these
-#'pairwise combinations, the corresponding feature vectors are sticked together to get a feature vector of length 520
+#'pairwise combinations, the corresponding feature vectors are glued together to get a feature vector of length 520
 #'for each of these compounds.Finally, the table obtained in this way will have the number of rows equal to the
 #'number of all pairwise combinations of these cysteines and the number of columns will be equal to 521
 #'(the first column includes the name of these pair combinations). And it is easy to divide this table into
 #'training and testing data and predict the desired disulfide bonds between cysteines.
-#' @return a table with number of all cyctein pairs in rows and 521 columns correspond to feature vector length.
+#' @return a table with number of all cysteine pairs in rows and 521 columns correspond to feature vector length.
 #' @references
 #' D.-J. Yu et al., "Disulfide connectivity prediction based on modelled protein 3D structural information and
 #' random forest regression," vol. 12, no. 3, pp. 611-621, 2014.
@@ -26,7 +26,7 @@
 #' feature engineering for predicting cysteine reactivity in proteins," vol. 17, pp. 90-100, 2019.
 #' @export
 #' @examples
-#' aq<-disulfid(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-disulfid(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 disulfid<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

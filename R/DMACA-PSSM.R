@@ -3,7 +3,7 @@
 #'contains 20 columns Hence, each PSSM can be considered as 20 time series.The detrended moving-average
 #'cross-correlation analysis (DMCA) is developed to measure the level of cross-correlation between two
 #'non-stationary time series by fusing the detrended cross-correlation analysis (DCCA) and the detrended
-#'moving average(DMA).this function utilises this algorithm for each column and each pair of columns to produce
+#'moving average(DMA).this function utilizes this algorithm for each column and each pair of columns to produce
 #'a feature vector of length 290.
 #' @param pssm_name name of PSSM Matrix file
 #' @param n A parameter called the window size that must be smaller than the length of the sequence
@@ -19,8 +19,8 @@
 #' descriptors based on evolutionary information," vol. 66, no. 1, pp. 61-78, 2018.
 #' @export
 #' @examples
-#' as<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
-DFMCA_PSSM<-function(pssm_name,n){
+#' X<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
+DFMCA_PSSM<-function(pssm_name,n=7){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")

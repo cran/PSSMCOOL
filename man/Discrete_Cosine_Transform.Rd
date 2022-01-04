@@ -17,7 +17,7 @@ To construct this feature vector, Two-Dimensional DCT algorithm has been used by
 \code{\link[dtt]{dct}} function from dtt package which DCT stands for Discrete Cosin Transform.
 }
 \examples{
-as<-Discrete_Cosine_Transform(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-Discrete_Cosine_Transform(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Wang, L., et al., Advancing the prediction accuracy of protein-protein interactions by utilizing

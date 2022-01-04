@@ -55,8 +55,8 @@ Averag_Block<-function(pssm_name){
 #' machine to predict protein self-interactions with protein evolutionary information," vol. 9, no. 1, p. 47, 2017.
 #' @export
 #' @examples
-#' as<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
-PSSMBLOCK <- function(pssm_name,N){
+#' X<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
+PSSMBLOCK <- function(pssm_name,N=5){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")

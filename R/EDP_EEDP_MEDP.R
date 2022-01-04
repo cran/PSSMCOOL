@@ -1,11 +1,11 @@
 #' EDP_EEDP_MEDP feature vector
-#' @description This is a feature vector of length 420 which is used for prediction of protein
+#' @description these are three feature vectors (EDP, EEDP, MEDP) which are used for prediction of protein
 #'structural class for low-similarity sequences.at first ED-PSSM Matrix with 20*20 dimensions
 #'is constructed from PSSM Matrix then by using this Matrix, EDP and EEDP vectors are
 #'obtained eventually MEDP feature vector is obtained by fusing these vectors.
 #' @param pssm_name is name of PSSM Matrix  file
 #' @import utils
-#' @return a feature vectors of length 420
+#' @return a list of three feature vectors (EDP, EEDP, MEDP)
 #' @references
 #' Zhang, L., Zhao, X. and Kong, L. (2014) Predict protein structural class for low-similarity sequences by evolutionary difference
 #' information into the general form of Chou's pseudo amino acid composition, Journal of Theoretical Biology, 355, 105-110.
@@ -13,8 +13,8 @@
 #' @export
 #'
 #' @examples
-#' as<-EDP_MEDP(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GS61.txt.pssm"))
-EDP_MEDP <- function(pssm_name){
+#' X<-EDP_EEDP_MEDP(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GS61.txt.pssm"))
+EDP_EEDP_MEDP <- function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -27,7 +27,7 @@ EDP_MEDP <- function(pssm_name){
   x<-as.matrix(x)
   mode(x)<-"integer"
   p<-x
-  p<-1/(1+exp(-p))
+  #p<-1/(1+exp(-p))
   L<-dim(p)[1]
   s<-0
   e<-matrix(0,20,20)
@@ -52,6 +52,6 @@ EDP_MEDP <- function(pssm_name){
   }
   EEDP<-round(v,digits = 4)
   MEDP<-c(EDP,EEDP)
-  return(MEDP)
+  return(list(EDP,EEDP, MEDP))
 }
 

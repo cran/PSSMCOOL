@@ -14,7 +14,7 @@
 
 \strong{All functions in this package:}
 \itemize{
-  \item \code{\link{AATP_TPCC}}
+  \item \code{\link{AATP_TPC}}
   \item \code{\link{AB_PSSM}}
   \item \code{\link{Averag_Block}}
   \item \code{\link{consunsus_sequence}}
@@ -23,14 +23,14 @@
   \item \code{\link{Discrete_Cosine_Transform}}
   \item \code{\link{disulfid}}
   \item \code{\link{DP_PSSM}}
-  \item \code{\link{DPC_PSSM}}
+  \item \code{\link{dpc_pssm}}
   \item \code{\link{dwt_PSSM}}
-  \item \code{\link{EDP_MEDP}}
+  \item \code{\link{EDP_EEDP_MEDP}}
   \item \code{\link{FPSSM}}
   \item \code{\link{FPSSM2}}
   \item \code{\link{grey_pssm_pseAAC}}
   \item \code{\link{k_mers}}
-  \item \code{\link{k_seperated_bigrame}}
+  \item \code{\link{k_separated_bigrams_pssm}}
   \item \code{\link{kiderafactor}}
   \item \code{\link{LPC_PSSM}}
   \item \code{\link{MBMGACPSSM}}
@@ -40,9 +40,9 @@
   \item \code{\link{pssm_cc}}
   \item \code{\link{PSSM_SD}}
   \item \code{\link{pssm_seg}}
-  \item \code{\link{PSSMAC}}
   \item \code{\link{PSSMBLOCK}}
   \item \code{\link{rpssm}}
+  \item \code{\link{RPM_PSSM}}
   \item \code{\link{scsh2}}
   \item \code{\link{single_Average}}
   \item \code{\link{smoothed_PSSM}}
@@ -64,6 +64,7 @@ Authors:
 \itemize{
   \item Alireza Mohammadi \email{alireza691111@gmail.com}
   \item Javad Zahiri \email{zahiri@modares.ac.ir}
+  \item Saber Mohammadi \email{sabermohammdi.1994@gmail.com}
 }
 
 }

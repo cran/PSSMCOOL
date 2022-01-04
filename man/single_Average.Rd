@@ -17,7 +17,7 @@ This descriptor is a variant of the Average Block descriptor and is designed to 
 related to the same amino acid, thus considering domains of a sequence with similar conservation rates.
 }
 \examples{
-w<-single_Average(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-single_Average(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 L. Nanni, A. Lumini, and S. J. T. S. W. J. Brahnam, "An empirical study of different approaches for protein classification,"

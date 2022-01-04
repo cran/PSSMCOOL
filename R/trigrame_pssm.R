@@ -11,7 +11,7 @@
 #' specific scoring matrix for protein fold recognition, IEEE transactions on nanobioscience, 13, 44-50
 #' @export
 #' @examples
-#' as<-trigrame_pssm(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GSI6.txt.pssm"))
+#' X<-trigrame_pssm(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GSI6.txt.pssm"))
 trigrame_pssm<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

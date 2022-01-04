@@ -17,7 +17,7 @@
 #' a grey system model and asymmetric under-sampling technique," vol. 174, pp. 22-32, 2018.
 #' @export
 #' @examples
-#' as<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 grey_pssm_pseAAC<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

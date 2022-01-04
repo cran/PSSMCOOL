@@ -13,7 +13,7 @@
 #' vol. 73, no. 3, pp. 765-784, 2015.
 #' @export
 #' @examples
-#' w<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 MBMGACPSSM<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

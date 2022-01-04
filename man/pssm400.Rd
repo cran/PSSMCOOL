@@ -26,5 +26,5 @@ if a specific amino acid did not exist in protein then \code{\link[base]{colSums
 PSSM is computed.
 }
 \examples{
-q<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
+X<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
 }

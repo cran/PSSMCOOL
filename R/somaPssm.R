@@ -10,7 +10,7 @@
 #' information into Chou's general pseudo amino acid composition," vol. 78, pp. 110-117, 2017.
 #' @export
 #' @examples
-#' w<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 SOMA_PSSM<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

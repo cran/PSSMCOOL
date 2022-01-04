@@ -20,7 +20,7 @@ discrete signal. At last, 4 levels DWT is used to analysis of these discrete sig
 extracted the PSSM-DWT feature from PSSM of protein.
 }
 \examples{
-as<-dwt_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-dwt_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Y. Wang, Y. Ding, F. Guo, L. Wei, and J. J. P. o. Tang, "Improved detection of DNA-binding proteins

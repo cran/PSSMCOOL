@@ -4,7 +4,7 @@
 \alias{FPSSM}
 \title{D-FPSSM and SF-PSSM feature vectors}
 \usage{
-FPSSM(pssm_name, hk)
+FPSSM(pssm_name, hk = 20)
 }
 \arguments{
 \item{pssm_name}{name of PSSM Matrix file}
@@ -20,7 +20,7 @@ which then used by FPSSM2 function to construct feature vector of length 100 for
 proteins which then used for protein-protein interaction prediction in each dataset.
 }
 \examples{
-q<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),8)
+X<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),20)
 
 }
 \references{

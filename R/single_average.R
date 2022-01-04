@@ -10,7 +10,7 @@
 #' @seealso \code{\link{Averag_Block}}
 #' @export
 #' @examples
-#' w<-single_Average(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-single_Average(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 single_Average<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

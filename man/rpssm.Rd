@@ -18,7 +18,7 @@ with a relationship similar to the auto covariance transformation feature, this 
 obtained from this matrix.
 }
 \examples{
-w<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Ding, S., et al. (2014) A protein structural classes prediction method based on predicted secondary structure and

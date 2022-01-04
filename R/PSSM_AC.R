@@ -6,14 +6,15 @@
 #' @note in use of this function The lg parameter must be less than the length of the smallest sequence
 #' in the database.
 #' @import utils
-#' @return feature vector which its length depends on parameter lg
+#' @return feature vector which its length depends on parameter lg. by default lg is 10 hence feature vector
+#' would be of length 200.
 #' @references
 #' Dong, Q., Zhou, S. and Guan, J. (2009) A new taxonomy-based protein fold recognition approach
 #' based on autocross-covariance transformation, Bioinformatics, 25, 2655-2662.
 #' @export
 #' @examples
-#' q<-pssm_ac(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),17)
-pssm_ac <- function(pssm_name,lg=18){ #lg smaler than shortest protein length in database
+#' X<-pssm_ac(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+pssm_ac <- function(pssm_name,lg=10){ #lg smaler than shortest protein length in database
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -26,7 +27,7 @@ pssm_ac <- function(pssm_name,lg=18){ #lg smaler than shortest protein length in
   x<-as.matrix(x)
   mode(x)<-"integer"
   s<-x
-  s<-1/(1+exp(-s))
+  #s<-1/(1+exp(-s))
   L<-dim(s)[1]
   sbar<-apply(s,2,mean)
   names(sbar)<-NULL

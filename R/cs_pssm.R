@@ -13,13 +13,14 @@
 #'if vec_name equals to "segmented_acpssm" then a feature vector of length 280 is obtained, and if vec_name
 #'equals to "cspssm" the obtained feature vector would be of length 40 eventually if vec_name equals to
 #'"total" then feature vector would be of length 700.
-#' @return feature vector that its length depends on the vec_name which user imports
+#' @return feature vector that its length depends on the vec_name which user imports. vec_name can be one
+#' of "cspssm", "segmented_psepssm", "segmented_acpssm", "total".
 #' @references
 #' Y. Liang, S. Liu, S. J. C. Zhang, and m. m. i. medicine, "Prediction of protein structural
 #' classes for low-similarity sequences based on consensus sequence and segmented PSSM," vol. 2015, 2015.
 #' @export
 #' @examples
-#' A<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
+#' X<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
 CS_PSe_PSSM <- function(pssm_name,vec_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

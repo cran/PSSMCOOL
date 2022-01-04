@@ -21,8 +21,8 @@
 #' @seealso \code{\link{kiderafactor}}
 #' @export
 #' @examples
-#' w<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
-smoothed_PSSM<-function(pssm_name,ws,w,v=NULL){ #ws in range 3,5,...,11 and w is in range 3,5,...,41
+#' X<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
+smoothed_PSSM<-function(pssm_name,ws=7,w=50,v=NULL){ #ws in range 3,5,...,11 and w is in range 3,5,...,41
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -35,7 +35,7 @@ smoothed_PSSM<-function(pssm_name,ws,w,v=NULL){ #ws in range 3,5,...,11 and w is
   x<-as.matrix(x)
   mode(x)<-"integer"
   m<-x
-  m<-1/(1+exp(-m))
+  #m<-1/(1+exp(-m))
   L<-dim(m)[1]
   smoothed_PSSM<-matrix(0,L,20)
   h<-matrix(0,(ws-1)/2,20)
@@ -49,37 +49,61 @@ smoothed_PSSM<-function(pssm_name,ws,w,v=NULL){ #ws in range 3,5,...,11 and w is
     smoothed_PSSM[i,]<-colSums(E)
     E<-c()
   }
-  mh<-matrix(0,(w-1)/2,20)
-  mk<-matrix(0,(w-1)/2,20)
-  M<-rbind(mh,smoothed_PSSM,mk)
-  d<-(w-1)/2 +1
-  a<-1
-  x<-matrix(0,L,20*w)
-  w1=w2<-c()
-  for(i in (d-(w-1)/2):(d+(w-1)/2)){
-    w2<-c(w2,M[i,])
-  }
-  x[a,]<-w2
-  a<-a+1
-  d<-i+1
-  while(d<=(L+(w-1))){
-    w2<-c(w2[21:length(w2)],M[d,])
-    x[a,]<-w2
+  if ((w %% 2) == 1) {
+    mh<-matrix(0,(w-1)/2,20)
+    mk<-matrix(0,(w-1)/2,20)
+    M<-rbind(mh,smoothed_PSSM,mk)
+    d<-(w-1)/2 +1
+    a<-1
+    x2<-matrix(0,L,20*w)
+    w1=w2<-c()
+    for(i in (d-(w-1)/2):(d+(w-1)/2)){
+      w2<-c(w2,M[i,])
+    }
+    x2[a,]<-w2
     a<-a+1
-    d<-d+1
+    d<-i+1
+    while(d<=(L+(w-1))){
+      w2<-c(w2[21:length(w2)],M[d,])
+      x2[a,]<-w2
+      a<-a+1
+      d<-d+1
 
+    }
+  }else {
+    mh<-matrix(0,w/2,20)
+    mk<-matrix(0,w/2,20)
+    M<-rbind(mh,smoothed_PSSM,mk)
+    d<-1
+    a<-1
+    x2<-matrix(0,L,20*w)
+    w1=w2<-c()
+    for(i in 1:w){
+      w2<-c(w2,M[i,])
+    }
+    x2[a,]<-w2
+    a<-a+1
+    d<-i+1
+    while(d<=(L+w-1)){
+      w2<-c(w2[21:length(w2)],M[d,])
+      x2[a,]<-w2
+      a<-a+1
+      d<-d+1
+
+    }
   }
   if(length(v)!=0){
-    y<-x[v,]
-    y<-as.data.frame(y)
-    rownames(y)<-v
-    colnames(y)<-1:(w*20)
+    y<-x2[v,]
+    #y<-as.data.frame(y)
+    #rownames(y)<-v
+    #colnames(y)<-1:(w*20)
   }
   else{
-    y<-x
-    y<-as.data.frame(y)
-    rownames(y)<-1:L
-    colnames(y)<-1:(w*20)
+    y<-x2[floor(dim(x2)[1]/2),]
+    #y<-as.data.frame(y)
+    #rownames(y)<-1:L
+    #colnames(y)<-1:(w*20)
   }
+  y<- 2*(y-min(y))/(max(y)-min(y)) -1
   return(round(y,digits = 4))
 }

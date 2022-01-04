@@ -1,5 +1,5 @@
-#' k_seperated_bigrame feature vector
-#' @description This feature is almost identical to the \code{\link{DPC_PSSM}} feature, and in fact the DPC feature is part of
+#' k_separated_bigrams_pssm feature vector
+#' @description This feature is almost identical to the \code{\link{dpc_pssm}} feature, and in fact the DPC feature is part of
 #'this feature (for k=1) and for two different columns, considers rows that differ by the size of the unit k.
 #' @param pssm_name is name of PSSM Matrix file
 #' @param k a parameter that specifies separated length between amino acids
@@ -10,8 +10,8 @@
 #' Bigram.
 #' @export
 #' @examples
-#'  w<-k_seperated_bigrame(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
-k_seperated_bigrame<-function(pssm_name,k){
+#'  X<-k_separated_bigrams_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),1)
+k_separated_bigrams_pssm<-function(pssm_name,k=1){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")

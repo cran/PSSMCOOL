@@ -13,7 +13,8 @@ CS_PSe_PSSM(pssm_name, vec_name)
 four values}
 }
 \value{
-feature vector that its length depends on the vec_name which user imports
+feature vector that its length depends on the vec_name which user imports. vec_name can be one
+of "cspssm", "segmented_psepssm", "segmented_acpssm", "total".
 }
 \description{
 This feature vector is constructed  by fusing consensus sequence (CS), segmented PsePSSM, and
@@ -30,7 +31,7 @@ equals to "cspssm" the obtained feature vector would be of length 40 eventually 
 "total" then feature vector would be of length 700.
 }
 \examples{
-A<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
+X<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
 }
 \references{
 Y. Liang, S. Liu, S. J. C. Zhang, and m. m. i. medicine, "Prediction of protein structural

@@ -81,8 +81,8 @@ k_mers<-function(s,h){
 #' @export
 #'
 #' @examples
-#' zz<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
-scsh2<-function(pssm_name,k){
+#' X<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
+scsh2<-function(pssm_name,k=2){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")

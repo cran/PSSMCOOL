@@ -71,13 +71,13 @@ knitr::include_graphics("figures/pssm_ac.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-PSSMAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
- head(w, n = 50)
+ X<-pssm_ac(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+ head(X, n = 50)
 ```
 <br></br>
 
-# DPC-PSSM
-<font size="4">This feature stands for dipeptide composition(DPC), which multiplies the values that are located in two consecutive rows and two different columns. Having calculated these values for different rows and columns, they are summed. Next, for both columns, the sum is divided by L-1. Since the result depends on two different columns, eventually a feature vector of length 400, according to figure 3 and following equation ,will be obtained [@liu2010prediction].</font>
+# AAC-PSSM,DPC-PSSM,AADP-PSSM
+<font size="4">These are three feature vectors. AAC stands for Amino Acid composition which is actually mean of PSSM Matrix columns which its length is 20.DPC stands for dipeptide composition, which multiplies the values that are located in two consecutive rows and two different columns. Having calculated these values for different rows and columns, they are summed. Next, for both columns, the sum is divided by L-1.Since the result depends on two different columns, eventually a feature vector of length 400, according to figure 3 and following equation ,will be obtained. AADP is combination of AAC and DPC feature vectors. [@liu2010prediction].</font>
 <br></br>
 
 ```{r dpc-pssm,echo=FALSE,fig.cap="Figure 3: process of extracting DPC-PSSM feature vector from PSSM",out.width = '70%'}
@@ -93,11 +93,15 @@ y_{i,j}=\frac{1}{(L-1)}\sum_{k=1}^{L-1}S_{k,i}S_{k+1,j}, \\(1\leq{i,j}\leq{20})
 <font size="4">In the above equation,$S_{i,j}$'s,are the PSSM elements and $y_{i,j}$'s are the 20x20 matrix elements, which by placing the rows of this matrix next to each other,DPC-PSSM feature vector of length 400 is obtained.</font>
 <br></br>
 
-<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
+<font size="4"> __*Usage of this features in PSSMCOOL package:*__</font>
 
 ```{r}
- ss<-DPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(ss, n = 50)
+X<-aac_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
+ss<-dpc_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
+ ss<-aadp_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -118,8 +122,8 @@ T_{m,n,r}=\sum_{i=1}^{L-2}P_{i,m}P_{i+1,n}P_{i+2,r}
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
-as<-trigrame_pssm(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GSI6.txt.pssm"))
-head(as, n = 50)
+X<-trigrame_pssm(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GSI6.txt.pssm"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -140,8 +144,8 @@ p(k)=\frac{1}{L-lag}\sum_{i=1}^{L-lag}(p_{i,j}-p_{i+lag,j})^2 \\j=1,2,...,20,lag
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- v<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(v, n = 50)
+ X<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -161,8 +165,8 @@ T_{m,n}(k)=\sum_{i=1}^{L-k}p_{i,m}p_{i+k,n}\quad ,(1\leq{m,n}\leq{20})
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-k_seperated_bigrame(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
-head(w, n = 50)
+ X<-k_separated_bigrams_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
+head(X, n = 50)
 ```
 <br></br>
 
@@ -186,7 +190,7 @@ ED-PSSM=(e_1,e_2,...,e_{20})\quad where \quad e_t=(e_{1,t},e_{2,t},...,e_{20,t})
 e_{k,t}=\sum_{i=2}^{L-1}x_{i-1,i+1}/L-2 \quad , k,t=1,2,..,20
 \end{equation}
 
-<font size="4"> Using this ED-PSSM, the three features EDP, EEDP, and MEDP are defined by the following equation. EDP and EEDP have a length of 20 and 400, respectively. The MEDP feature is obtained by merging these two feature vectors [@zhang2014predict].</font>
+<font size="4"> Using this ED-PSSM, the three features EDP, EEDP, and MEDP are defined by the following equation. EDP and EEDP have a length of 20 and 400, respectively. The MEDP feature is obtained by merging these two feature vectors [@zhang2014predict]. output of this function is a list of three feature vectors (EDP, EEDP, MEDP) </font>
 
 \begin{equation}
 EDP=[\psi_1,\psi_2,...,\psi_{20}]^T \quad where \quad \psi_t=\sum_{k=1}^{20}e_{k,t}/20 \quad ,t=1,2,...,20 \\
@@ -208,13 +212,13 @@ knitr::include_graphics("figures/EEDP.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-EDP_MEDP(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GS61.txt.pssm"))
-head(as, n = 50)
+ X<-EDP_EEDP_MEDP(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GS61.txt.pssm"))
+head(X[[3]], n = 50) # in here X[[3]] indicates MEDP feature vector
 ```
 <br></br>
 
 # AB-PSSM
-<font size="4"> This feature consists of two types of feature vectors. At first, each protein sequence is divided into 20 equal parts, each of which is called a block, and in each block, the row vectors of the PSSM related to that block are added together. The resulting final vector is divided by the length of that block, which is equal to 5% of protein length. Finally, by placing these 20 vectors side by side, the first feature vector of length 400 is obtained. The second feature for each amino acid in each column is the average of the positive numbers in that column and for each block, and these 20 values, corresponding to 20 blocks, are placed next to each other, and therefore for each of the 20 types of amino acids, a vector of length 20 is obtained, and by placing these together,the second feature vector of length 400, is obtained. Figure 8 depicts this process [@cheol2010position].</font>
+<font size="4"> in this feature At first, each protein sequence is divided into 20 equal parts, each of which is called a block, and in each block, the row vectors of the PSSM related to that block are added together. The resulting final vector is divided by the length of that block, which is equal to 5% of protein length. Finally, by placing these 20 vectors side by side, the first feature vector of length 400 is obtained.Figure 8 depicts this process [@cheol2010position].</font>
 
 ```{r ab-pssm,echo=FALSE,fig.cap="Figure 8: process of extracting AB-PSSM feature vectors from PSSM",out.width = '70%'}
 knitr::include_graphics("figures/AB-PSSM.jpg")
@@ -223,13 +227,13 @@ knitr::include_graphics("figures/AB-PSSM.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
-  zz<- AB_PSSM(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"))
-head(zz[1], n = 50)
+  X<- AB_PSSM(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"))
+head(X[1], n = 50)
 ```
 <br></br>
 
 # AATP-TPC
-<font size="4"> In this feature, at first, a TPM matrix is constructed from the PSSM, which has represented by a vector corresponding to the following equation:</font>
+<font size="4"> In this features, at first, a TPM matrix is constructed from the PSSM, which has represented by a vector corresponding to the following equation:</font>
 
 \begin{equation}
 Y_{TPM}=(y_{1,1},y_{1,2},...,y_{1,20},...,y_{i,1},...,y_{i,20},...,y_{20,1},...,y_{20,20})^T
@@ -243,13 +247,13 @@ Y_{TPM}=(y_{1,1},y_{1,2},...,y_{1,20},...,y_{i,1},...,y_{i,20},...,y_{20,1},...,
 y_{i,j}=(\sum_{k=1}^{L-1}P_{k,i}\times P_{k+1,j})/(\sum_{j=1}^{20}\sum_{k=1}^{L-1}P_{k+1,j}\times P_{k,i}) \\  1\leq{i,j}\leq{20}
 \end{equation}
 <br></br>
-<font size="4"> In the above equation, the numerator is the same as the equation related to DPC-PSSM feature without considering its coefficient. By placing these components together, a TPC feature vector of length 400 is obtained, and if we add the AAC feature vector of length 20 which is the average of columns of the PSSM to the beginning of this vector, AATP feature vector of length 420 is obtained [@zhang2012using].</font>
+<font size="4"> In the above equation, the numerator is the same as the equation related to DPC-PSSM feature without considering its coefficient. By placing these components together, a TPC feature vector of length 400 is obtained, and if we add the AAC feature vector of length 20 which is the average of columns of the PSSM to the beginning of this vector, AATP feature vector of length 420 is obtained [@zhang2012using]. output is a list of two features (TPC and AATP)</font>
 <br></br>
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-AATP_TPCC(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GQS7.txt.pssm"))
-head(as, n = 50)
+ X<-AATP_TPC(paste0(system.file("extdata",package="PSSMCOOL"),"/C7GQS7.txt.pssm"))
+head(X[[2]], n = 50) #in here X[[2]] indicates AATP feature vector
 ```
 <br></br>
 
@@ -355,8 +359,8 @@ j=1,2,...,20,lg=1,2
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- A<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
-head(A, n = 50)
+ X<-CS_PSe_PSSM(system.file("extdata", "C7GSI6.txt.pssm", package="PSSMCOOL"),"total")
+head(X, n = 50)
 ```
 <br></br>
 
@@ -393,8 +397,8 @@ knitr::include_graphics("figures/s-fpssm.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- q<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),20)
-head(q, n = 50)
+ X<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),20)
+head(X, n = 50)
 ```
 <br></br>
 
@@ -423,8 +427,8 @@ knitr::include_graphics("figures/scshtable.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- zz<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
-head(zz, n = 200)
+ X<- scsh2(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"),2)
+head(X, n = 200)
 ```
 <br></br>
 
@@ -502,35 +506,38 @@ D_{s,t}&=\frac{1}{L-1}\sum_{i=1}^{L-1}x_{i,i+1} \\
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(w, n = 50)
+ X<-rpssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
-# CC-PSSM
-<font size="4">This feature, which is similar to the PSSM-AC feature, stands for cross-covariance transformation. For column $j_1$, it calculates the average of this column as shown in figure 12, and then subtract the result from the number on the i-th row in this column. Similarly, the feature calculates the average for the column $j_2$ and then subtracts the resulting number from the value on row i + g of this column and finally multiplies them. By changing the variable i from 1 to L-g, it calculates the sum of these, because the variable $j_1$ changes between 1 and 20 and the variable $j_2$ changes in the same interval (1,20) except for the number selected for the variable $j_1$. Eventually feature vector of length 380 will be obtained [@dong2009new]. </font>
+# PSSM-CC
+<font size="4">This feature, which is similar to the PSSM-AC feature, stands for cross-covariance transformation. For column $j_1$, it calculates the average of this column as shown in figure 12, and then subtract the result from the number on the i-th row in this column. Similarly, the feature calculates the average for the column $j_2$ and then subtracts the resulting number from the value on row i + g of this column and finally multiplies them. By changing the variable i from 1 to L-g, it calculates the sum of these, because the variable $j_1$ changes between 1 and 20 and the variable $j_2$ changes in the same interval (1,20) except for the number selected for the variable $j_1$. Eventually feature vector of length 20.19.LG will be obtained [@dong2009new].</font>
 
 <br></br>
 <br></br>
 
 
-```{r ccpssm,echo=FALSE,fig.cap="Figure 12: process of extracting CC-PSSM feature vector",out.width = '70%'}
+```{r ccpssm,echo=FALSE,fig.cap="Figure 12: process of extracting PSSM-CC feature vector",out.width = '70%'}
 knitr::include_graphics("figures/cc-pssm.jpg")
 ```
 <br></br>
 
 \begin{equation}
-CC-PSSM_{j1,j2}=\sum_{i=1}^{L-g}(P_{i,j1}-\overline {P_{j1}})(P_{i+g,j2}-\overline {P_{j2}})\\
+PSSM-CC_{j1,j2,g}={\frac {\sum_{i=1}^{L-g}(P_{i,j1}-\overline {P_{j1}})(P_{i+g,j2}-\overline {P_{j2}})}{L-g}}\\
 1\leq j1,j2\leq 20
 \end{equation}
 
+<font size="4"> where $j_1$, $j_2$ are two different amino acids and $\overline {P_{j1}} (\overline {P_{j2}})$ is the average score for amino acid $j_1$ ($j_2$) along the sequence.Since the PSSM-CC variables are not
+symmetric, the total number of PSSM-CC variables is 380∗LG .The maximum value of LG is the length of the shortest
+sequence minus one in the Database studied.by default LG is 10 here, hence the feature vector would be of length 3800 here</font>
 <br></br>
 
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- aa<-pssm_cc(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),18)
-head(aa, n = 50)
+ X<-pssm_cc(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -558,8 +565,8 @@ DCT(u,v)=\rho(u)\rho(v)\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\cos\frac{(2x+1)u\p
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-Discrete_Cosine_Transform(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(as, n = 50)
+ X<-Discrete_Cosine_Transform(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -593,8 +600,8 @@ knitr::include_graphics("figures/dwt.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-dwt_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(as, n = 50)
+ X<-dwt_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -614,8 +621,8 @@ knitr::include_graphics("figures/disulfid.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
-  aq<-disulfid(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(aq[,1:50])
+  X<-disulfid(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X[,1:50])
 ```
 <br></br>
 
@@ -675,8 +682,8 @@ T_{i,j}=\frac{E_{i,j}-mean_i}{STD_i}
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- ss<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(ss, n = 50)
+ X<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -715,8 +722,8 @@ f_{DFMCA}^2(s)=\frac{1}{L-s+1}\sum_{k=1}^{L-s+1}(X_k-\tilde{X}_{k,s})(Y_k-\tilde
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
-  as<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
-head(as, n = 50)
+  X<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
+head(X, n = 50)
 ```
 <br></br>
 
@@ -789,8 +796,8 @@ p_{L,j}-p_{L-1,j}
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(as, n = 50)
+ X<-grey_pssm_pseAAC(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -825,8 +832,8 @@ knitr::include_graphics("figures/smoothed.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
-head(w[,1:50], n = 50)
+ X<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
+head(X[,1:50], n = 50)
 ```
 <br></br>
 
@@ -838,8 +845,8 @@ head(w[,1:50], n = 50)
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
-  w<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
-head(w[,1:50], n = 50)
+  X<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
+head(X[,1:50], n = 50)
 ```
 <br></br>
 
@@ -852,8 +859,8 @@ residues separated by a distance of d in terms of their evolution scores [@liang
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(w, n = 50)
+ X<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -865,13 +872,13 @@ head(w, n = 50)
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(w, n = 50)
+ X<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
 # PSSM400
-<font size="4">To generate this feature vector, for each of the standard amino acids, we find the positions containing that amino acid in the protein and separate the corresponding rows in the PSSM, to get a submatrix. Now, for the generated matrix, we calculate the average of its columns, and therefore, for each amino acid, a vector of length 20 is obtained. Finally, by putting these 20 vectors together, a feature vector of length 400 for each protein can be obtained. For example figure 16 shows the PSSM rows corresponding to amino acid S [@nanni2014empirical].</font>
+<font size="4">To generate this feature vector, for each of the standard amino acids, we find the positions containing that amino acid in the protein and separate the corresponding rows in the PSSM, to get a sub matrix. Now, for the generated matrix, we calculate the average of its columns, and therefore, for each amino acid, a vector of length 20 is obtained. Finally, by putting these 20 vectors together, a feature vector of length 400 for each protein can be obtained. For example figure 16 shows the PSSM rows corresponding to amino acid S [@nanni2014empirical].</font>
 
 
 ```{r pssm400,echo=FALSE,fig.cap="Figure 16: process of extracting PSSM400 feature vector, which for amino acid S, represents the corresponding rows in PSSM",out.width = '70%'}
@@ -883,9 +890,24 @@ knitr::include_graphics("figures/pssm400.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- q<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
-head(q, n = 50)
+ X<-pssm400(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"))
+head(X, n = 50)
 ```
+<br></br>
+
+
+# RPM-PSSM
+<font size="4"> In this feature The idea is similar to the probe concept used in microarray technologies, where probes are used to identify genes. For the convenience, we call it residue probing method. In our application, each probe is an amino acid, which corresponds to a particular column in the PSSM profiles. For each probe, we average the PSSM scores of all the amino acids in the associated column with a PSSM value greater than zero in the sequence, which leads to a 1  20 feature vector. Once again, for the 20 probes, the final feature for each protein sequence is a 1  400 vector. [@cheol2010position].</font>
+
+<br></br>
+
+<font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
+
+```{r}
+ X<- RPM_PSSM(system.file("extdata","C7GRQ3.txt.pssm",package="PSSMCOOL"))
+X
+```
+
 <br></br>
 
 # PSSM-BLOCK
@@ -898,8 +920,8 @@ appending these vectors to each other final feature vector is obtained [@an2017c
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- as<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
-head(as, n = 50)
+ X<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
+head(X, n = 50)
 ```
 <br></br>
 
@@ -917,8 +939,8 @@ knitr::include_graphics("figures/pssmsd.jpg")
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- ww<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(ww, n = 50)
+ X<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -943,8 +965,8 @@ PSSM-AC_{m,j}=\frac{1}{(L-m)}\sum_{i=1}^{L-m}(P_{i,j}-P_{ave,j})(P_{(i+m),j}-P_{
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- q<-pssm_seg(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),3)
-head(q, n = 50)
+ X<-pssm_seg(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),3)
+head(X, n = 50)
 ```
 <br></br>
 
@@ -969,8 +991,8 @@ head(q, n = 50)
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(w, n = 50)
+ X<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 50)
 ```
 <br></br>
 
@@ -980,15 +1002,15 @@ that has many useful applications in signal processing and statistics. In this f
 applied to a matrix representation of a protein aimed to reduce its dimensionality.
 Given an input matrix Mat with dimensions N*M SVD is used to calculate its factorization
 of the form: $Mat=U\Sigma V$ where $\Sigma$ is a diagonal matrix whose diagonal
-entries are known as the singular values of Mat. The resulting descriptor is the ordered set of singular values: $SVD\in\mathcal{R}^L$ where L=min(M,N). Since the PSSM has 20 columns, the final feature vector would be of length 20 [@nanni2014empirical].</font>
+entries are known as the singular values of Mat.The resulting descriptor is the ordered set of singular values: $SVD\in\mathcal{R}^L$ where L=min(M,N). Since the PSSM has 20 columns, the final feature vector would be of length 20 [@nanni2014empirical].</font>
 
 <br></br>
 
 <font size="4"> __*Usage of this feature in PSSMCOOL package:*__</font>
 
 ```{r}
- w<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-head(w, n = 20)
+ X<-SVD_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+head(X, n = 20)
 ```
 
 <br></br>
@@ -1106,7 +1128,7 @@ bmp.R2.submission.data.df$Class <-
   as.factor(bmp.R2.submission.data.df$Class) 
 write.csv(bmp.R2.submission.data.df, 'DataSet.csv') 
 ```
-<font size="4">__*################---Training model with three classifier---##############*__</font>
+<font size="4">__*################---Training model with two classifier---##############*__</font>
 
 <font size="4">__*# setting.the.trainControl*__</font>
 ```{r eval=FALSE}

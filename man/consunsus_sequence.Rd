@@ -19,7 +19,7 @@ and "arg" represents the argument of the maximum the ith base of the consensus s
 \eqn{\alpha(i)}th amino acid in the amino acid alphabet and a consensus sequence is constructed.
 }
 \examples{
-w<-consunsus_sequence(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-consunsus_sequence(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Y. Liang, S. Liu, S. J. C. Zhang, and m. m. i. medicine, "Prediction of protein structural

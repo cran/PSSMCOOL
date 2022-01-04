@@ -4,7 +4,7 @@
 \alias{DFMCA_PSSM}
 \title{DMACA-PSSM feature}
 \usage{
-DFMCA_PSSM(pssm_name, n)
+DFMCA_PSSM(pssm_name, n = 7)
 }
 \arguments{
 \item{pssm_name}{name of PSSM Matrix file}
@@ -19,14 +19,14 @@ In this feature each column of PSSM Matrix, can be regarded as a time series. Ea
 contains 20 columns Hence, each PSSM can be considered as 20 time series.The detrended moving-average
 cross-correlation analysis (DMCA) is developed to measure the level of cross-correlation between two
 non-stationary time series by fusing the detrended cross-correlation analysis (DCCA) and the detrended
-moving average(DMA).this function utilises this algorithm for each column and each pair of columns to produce
+moving average(DMA).this function utilizes this algorithm for each column and each pair of columns to produce
 a feature vector of length 290.
 }
 \note{
 parameter n must be equal or greater than 3 and equal or less then L which L is length of protein
 }
 \examples{
-as<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
+X<-DFMCA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7)
 }
 \references{
 Y. Liang, S. Zhang, S. J. S. Ding, and Q. i. E. Research, "Accurate prediction of Gram-negative bacterial secreted protein

@@ -4,7 +4,7 @@
 \alias{PSSMBLOCK}
 \title{PSSM BLOCK feature vector}
 \usage{
-PSSMBLOCK(pssm_name, N)
+PSSMBLOCK(pssm_name, N = 5)
 }
 \arguments{
 \item{pssm_name}{neme of PSSM Matrix file}
@@ -20,7 +20,7 @@ Block mean of columns is computed to get 20-dimensional vector, eventually by ap
 vector is obtained.
 }
 \examples{
-as<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
+X<-PSSMBLOCK(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),5)
 }
 \references{
 J.-Y. An, L. Zhang, Y. Zhou, Y.-J. Zhao, and D.-F. J. J. o. c. Wang, "Computational methods using weighed-extreme learning

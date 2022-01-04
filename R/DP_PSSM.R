@@ -11,15 +11,15 @@
 #' @param a fixed parameter that user chooses which usually equals to 2
 #' @importFrom stats sd
 #' @import utils
-#' @return feature vector of length 120
+#' @return feature vector of length 240
 #' @references
 #' Juan, E.Y., et al. (2009) Predicting Protein Subcellular Localizations for Gram-Negative Bacteria using DP-PSSM
 #' and Support Vector Machines. Complex, Intelligent and Software Intensive Systems, 2009. CISIS'09. International
 #' Conference on. IEEE, pp. 836-841.
 #' @export
 #' @examples
-#' ss<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
-DP_PSSM <- function(pssm_name,a=2){
+#' X<-DP_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+DP_PSSM <- function(pssm_name,a=5){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -32,7 +32,7 @@ DP_PSSM <- function(pssm_name,a=2){
   x<-as.matrix(x)
   mode(x)<-"integer"
   m2<-x
-  m2<-1/(1+exp(-m2))
+  #m2<-1/(1+exp(-m2))
   L<-dim(m2)[1]
   mt<-matrix(0,L,20)
   for(i in 1:L){

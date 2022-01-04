@@ -12,7 +12,7 @@
 #' @seealso \code{\link{smoothed_PSSM}}
 #' @export
 #' @examples
-#' w<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
+#' X<-kiderafactor(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),c(2,3,8,9))
 kiderafactor<-function(pssm_name,v=NULL){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

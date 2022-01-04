@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' w<-consunsus_sequence(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-consunsus_sequence(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 consunsus_sequence<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

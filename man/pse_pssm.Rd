@@ -4,7 +4,7 @@
 \alias{pse_pssm}
 \title{pseudo position-specific scoring matrix feature}
 \usage{
-pse_pssm(pssm_name, g = 15)
+pse_pssm(pssm_name, g = 1)
 }
 \arguments{
 \item{pssm_name}{is the name of PSSM matrix file}
@@ -20,7 +20,7 @@ correlation factors correspond to 20 columns in PSSM Matrix. \eqn{F_{PSSM}} actu
 columns of length 20.
 }
 \examples{
-v<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-pse_pssm(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 D.-J. Yu et al., "Learning protein multi-view features in complex space," vol. 44, no. 5, pp. 1365-1379,

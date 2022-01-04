@@ -20,7 +20,7 @@ of amino acid properties along the sequence, which measures the correlation betw
 by a distance of d in terms of their evolution scores.
 }
 \examples{
-w<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-MBMGACPSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Y. Liang, S. Liu, S. J. M. C. i. M. Zhang, and i. C. Chemistry, "Prediction of protein structural class

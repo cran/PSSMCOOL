@@ -4,7 +4,7 @@
 \alias{smoothed_PSSM}
 \title{smoothed PSSM feature}
 \usage{
-smoothed_PSSM(pssm_name, ws, w, v = NULL)
+smoothed_PSSM(pssm_name, ws = 7, w = 50, v = NULL)
 }
 \arguments{
 \item{pssm_name}{name of PSSM Matrix file}
@@ -33,7 +33,7 @@ head or tail of a smoothed PSSM profile. Using the smoothed PSSM encoding scheme
 The feature values in each vector are normalized to a range between -1 and 1.
 }
 \examples{
-w<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
+X<-smoothed_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"),7,11,c(2,3,8,9))
 }
 \references{
 Cheng, C.W., et al. (2008) Predicting RNA-binding sites of proteins using support vector machines and

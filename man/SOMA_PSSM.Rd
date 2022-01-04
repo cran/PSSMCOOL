@@ -18,7 +18,7 @@ columns, in other words, each PSSM contains 20 stochastic time series and Second
 algorithm is applied to these columns to extract SOMA PSSM feature vector.
 }
 \examples{
-w<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+X<-SOMA_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 }
 \references{
 Y. Liang, S. J. J. o. M. G. Zhang, and Modelling, "Predict protein structural class by incorporating two different modes of evolutionary

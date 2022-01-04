@@ -12,7 +12,7 @@
 #' from PSI-BLAST profile, physical-chemical property and functional annotations," vol. 9, no. 3, 2014.
 #' @export
 #' @examples
-#' w<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-LPC_PSSM(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 LPC_PSSM<-function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]

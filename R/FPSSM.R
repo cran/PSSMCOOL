@@ -11,9 +11,9 @@
 #' evolutionary information, Genomics, 102, 237-242.
 #' @export
 #' @examples
-#' q<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),8)
+#' X<-FPSSM(system.file("extdata","C7GQS7.txt.pssm",package="PSSMCOOL"),20)
 #'
-FPSSM <- function(pssm_name,hk){                              #### hk must be 8 or 20
+FPSSM <- function(pssm_name,hk=20){                              #### hk must be 8 or 20
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
   d<-which(x=="Lambda")
@@ -65,7 +65,7 @@ FPSSM <- function(pssm_name,hk){                              #### hk must be 8 
   else stop("ERROR: entered Number must be 8 or 20")
 
   S<-round(S,digits =3)
-  return(list(D,S))
+  return(list(D,S))  #D stands for d_fpssm and S stands for s_fpssm
 }
 #######################################################################################################
 #' Mixture of Two FPSSM Features

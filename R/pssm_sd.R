@@ -17,7 +17,7 @@
 #' recognition," vol. 11, no. 3, pp. 510-519, 2014.
 #' @export
 #' @examples
-#' ww<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
+#' X<-PSSM_SD(system.file("extdata", "C7GQS7.txt.pssm", package="PSSMCOOL"))
 PSSM_SD <- function(pssm_name){
   x<-read.delim(pssm_name,skip = 2,sep = "",header = FALSE)
   x<-x[-1,-c(1,23:44)]
